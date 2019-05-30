@@ -19,7 +19,7 @@ ZSH_THEME="theunraveler"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -104,3 +104,10 @@ eval "$(jenv init -)"
 eval "$(pyenv init -)"
 # notica.us
 notica() {curl --data "d:$*" "https://notica.us/?ISyLSvYC";}
+# openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+#local bin
+export PATH="/Users/dehimb/.local/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
