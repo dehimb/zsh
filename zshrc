@@ -67,7 +67,6 @@ ZSH_THEME="theunraveler"
 plugins=(git npm osx python)
 
 source $ZSH/oh-my-zsh.sh
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -98,6 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias b='bat'
 alias c='echo -n "" >'
+alias patator='python /Users/dehimb/hack/tools/patator/patator.py'
+alias lg='lazygit'
+
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
@@ -111,3 +113,33 @@ export PATH="/Users/dehimb/.local/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
+# pet functions
+function pet-select() {
+  BUFFER=$(pet search --color --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^ ' pet-select
+
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
+
+PATH="/Users/dehimb/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/dehimb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/dehimb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/dehimb/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/dehimb/perl5"; export PERL_MM_OPT;
+
+export PYTHONPATH="/Users/dehimb/.local/lib/python2.7/site-packages"
