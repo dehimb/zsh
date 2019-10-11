@@ -99,6 +99,10 @@ alias b='bat'
 alias c='echo -n "" >'
 alias patator='python /Users/dehimb/hack/tools/patator/patator.py'
 alias lg='lazygit'
+alias ld='lazydocker'
+alias theHarvester='cd /Users/dehimb/hack/tools/theHarvester; python theHarvester.py'
+alias knockpy='python /Users/dehimb/hack/tools/knock/knockpy/knockpy.py'
+alias crtsh='/Users/dehimb/hack/tools/crtsh/crt.sh'
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -142,4 +146,5 @@ PERL_LOCAL_LIB_ROOT="/Users/dehimb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB
 PERL_MB_OPT="--install_base \"/Users/dehimb/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/dehimb/perl5"; export PERL_MM_OPT;
 
-export PYTHONPATH="/Users/dehimb/.local/lib/python2.7/site-packages"
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+unset PYTHONPATH
