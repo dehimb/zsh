@@ -54,3 +54,5 @@ unset PYTHONPATH
 
 export PATH="/Users/dehimb/Library/Python/2.7/bin:$PATH"
 export EDITOR=vi
+
+complete -C '/usr/local/bin/aws_completer' aws
